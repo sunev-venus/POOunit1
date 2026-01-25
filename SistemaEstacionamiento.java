@@ -16,6 +16,7 @@ public class SistemaEstacionamiento {
         totalEntradas++;
 
         consecutivoTicket++;
+        String horaEntrada = null;
         
         String folio = "T-" + consecutivoTicket;
         Ticket t = new Ticket(folio, horaEntrada, vehiculo, espacio);
@@ -38,4 +39,3 @@ return t;
         return totalSalidas;
     }
 }
-
