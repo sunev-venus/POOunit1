@@ -1,0 +1,8 @@
+# Bloquear PDFs
+*.pdf
+
+# Bloquear archivos compilados de Java (basura)
+*.class
+
+# Bloquear configuraciones personales de VS Code
+.vscode/
