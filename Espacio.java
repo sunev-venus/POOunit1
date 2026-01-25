@@ -1,6 +1,6 @@
 class Espacio {
+    
 // Atributos
-
 private int numero;
 private String estado;
 private Vehículo vehiculoActual;
