@@ -16,8 +16,9 @@ public class TicketAs {
     }
     
     public static void finalizar (String horaSalida, String estado){
-        horaSalida= horaSalida;
+        horaSalida = horaSalida;
         estado = "Cerrado";
+        System.out.println("Hora salida: "+horaSalida +" - Estado: "+ estado );
     }
 
     public String obtenerDetalle(){ //funcion esa la que es en una sola linea 
