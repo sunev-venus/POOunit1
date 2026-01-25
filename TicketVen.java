@@ -3,6 +3,10 @@ class TicketVen {
     private String folio;
     private String horaEntrada;
     private String horaSalida;
+    private Espacio espacio;
+    private String estado;
+    private Vehículo vehiculo;
+
 
     // Constructor parametrizaddo
     public TicketVen(String folio, String horaEntrada, String horaSalida, Vehículo vehiculo, Espacio espacio){
