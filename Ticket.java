@@ -5,10 +5,14 @@ class Ticket {
     private String horaSalida;
 
     // Constructor parametrizaddo
-    public Ticket(String folio, String horaEntrada, String horaSalida){
+    public Ticket(String folio, String horaEntrada, String horaSalida, Vehículo vehiculo, Espacio espacio){
         this.folio = folio;
         this.horaEntrada = horaEntrada;
-        this.horaSalida = horaSalida;
+        this.horaSalida = "N/A";
+        this.estado = "ABIERTO";
+        this.vehiculo =vehiculo;
+        this.espacio = espacio;
+
     }
 
     // Métodos
