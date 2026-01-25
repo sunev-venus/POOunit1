@@ -1,5 +1,5 @@
 class Espacio {
-    
+
 // Atributos
 private int numero;
 private String estado;
@@ -8,8 +8,8 @@ private Vehículo vehiculoActual;
 //Constructores
 public Espacio(int numero, String estado, Vehículo vehiculoActual){
     this.numero = numero;
-    this.estado = estado;
-    this.vehiculoActual = vehiculoActual;
+    this.estado = "Libre";
+    this.vehiculoActual = null;
 }
 
 // Métodos
