@@ -1,11 +1,11 @@
-class Ticket {
+class TicketVen {
     //Atributos
     private String folio;
     private String horaEntrada;
     private String horaSalida;
 
     // Constructor parametrizaddo
-    public Ticket(String folio, String horaEntrada, String horaSalida, Vehículo vehiculo, Espacio espacio){
+    public TicketVen(String folio, String horaEntrada, String horaSalida, Vehículo vehiculo, Espacio espacio){
         this.folio = folio;
         this.horaEntrada = horaEntrada;
         this.horaSalida = "N/A";
