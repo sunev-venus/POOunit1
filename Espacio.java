@@ -14,8 +14,7 @@ public Espacio(int numero, String estado, Vehículo vehiculoActual){
 
 // Métodos
 public void ocupar(Vehículo vehiculo){
-    // no va a funcionar por la clase de vehículo
-    // Ya se ecupó?
+    this.vehiculoActual = vehiculo;
 }
 
 public void liberar(){
