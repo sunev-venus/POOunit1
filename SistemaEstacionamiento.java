@@ -16,10 +16,9 @@ public class SistemaEstacionamiento {
         totalEntradas++;
 
         consecutivoTicket++;
-        String horaEntrada = null;
-        
+        String horaEntrada = vehiculo.gethora();
         String folio = "T-" + consecutivoTicket;
-        Ticket t = new Ticket(folio, horaEntrada, vehiculo, espacio);
+        Ticket t = new Ticket(folio,horaEntrada, vehiculo, espacio);
         System.out.println("[" + nombre + "] Entrada registrada");
         System.out.println(" " + vehiculo.obtenerResumen());
         System.out.println(" " + t.obtenerDetalle());
