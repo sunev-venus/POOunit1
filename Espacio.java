@@ -15,11 +15,12 @@ public Espacio(int numero, String estado, Vehículo vehiculoActual){
 // Métodos
 public void ocupar(Vehículo vehiculo){
     this.vehiculoActual = vehiculo;
+    this.estado = "Ocupado";
 }
 
 public void liberar(){
-    // Está libre?
-
+    this.vehiculoActual = null;
+    this.estado = "Libre";
 }
 
 public boolean estaLibre(){
