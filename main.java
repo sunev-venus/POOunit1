@@ -17,7 +17,5 @@ public class main {
         // No va a funcionar debido a que se necesita la clase de Vehículo
 
     }
-
-    // Holaaaaaaaaaaaaa
     
 }
