@@ -23,13 +23,9 @@ class Ticket {
     }
 
     public boolean entregado(){
-        return false; /// hellllllppp
-        
+        return false;
 
     }
-
-
-// no funcioaaaaaakmsdk
 
     
 }
