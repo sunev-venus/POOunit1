@@ -2,43 +2,43 @@ public class Main {
     public static void main (String [] args){
 
         //SistemaEstacioinamiento
-        SistemaEstacionamiento smN1 = new SistemaEstacionamiento("Lucas");
-        SistemaEstacionamiento smN2 = new SistemaEstacionamiento("Paola");
-        SistemaEstacionamiento smN3= new SistemaEstacionamiento("Lulu");
+        SistemaEstacionamiento smN1 = new SistemaEstacionamiento("Central");
+    
         //Vehiculo
         Vehiculo v1= new Vehiculo("MYT45-45", "Standar","12:12 pm");
         Vehiculo v2= new Vehiculo("SDT02-78", "Standar","2:00 pm");
-        Vehiculo v3= new Vehiculo("AOI21-54", "Standar","2:00 pm");
+        Vehiculo v3= new Vehiculo("MKOI-95", "Standar","8:00 pm");
+     
         //Espacio
-        Espacio es1= new Espacio (1, "Libre", v1);
-        Espacio es2 = new Espacio(12, " ", v2);
-        Espacio es3 = new Espacio(5, "Libre", v1);
-        //Ticket
-        TicketAs tic1 = new TicketAs("A001", "12:05", v1, es1);
-        TicketAs tic2 = new TicketAs("A005", "10:59", v2, es2);
-        TicketAs tic3 = new TicketAs("A008", "9:10", v3, es3);
-       
+        Espacio es1= new Espacio (1, "Libre", null);
+        Espacio es2 = new Espacio(2, "Libre", null);
+        Espacio es3 = new Espacio(3, "Libre", null);
 
-       System.out.println(v1.obtenerResumen());
-       System.out.println(" \n");
-
-       System.out.println("======REGISTRO DE ENTRADAS======\n");
-       System.out.println(smN1.registrarEntrada(v3, es3));
-       System.out.println(" \n");
-       System.out.println(smN2.registrarEntrada(v1, es1));
-       System.out.println(" \n");
-       System.out.println(smN3.registrarEntrada(v2, es2));
-       System.out.println(" \n");
-       System.out.println(tic3.obtenerDetalle());
-       System.out.println(" \n");
-
-       System.out.println("======REGISTRO DE SALIDAS======\n");
-       //System.out.println(smN1.registrarSalidas(v3, es3));
-       System.out.println(" \n");
-
-       System.out.println("======REGISTRO DEL DÍA======\n");
-       System.out.println(" Ticket totales:" + SistemaEstacionamiento.getTotalEntradas());
-
+        System.out.println("======REGISTRO DE ENTRADAS======\n");
         
+        Ticket tic1 = smN1.registrarEntrada(v1, es1);
+        Ticket tic2 = smN1.registrarEntrada(v2, es2);
+        Ticket tic3 = smN1.registrarEntrada(v3, es3);
+
+        System.out.println("======REGISTRO DE SALIDAS======\n");
+        tic1.finalizar("2:00 am", "Libre");
+        es1.liberar();
+        smN1.registrarSalidas();
+        tic3.finalizar("2:00 am", "Libre");
+        es3.liberar();
+        smN1.registrarSalidas();
+
+        System.out.println("\n ========RESUMEN==========");
+        System.out.println("Total entradas: " + SistemaEstacionamiento.getTotalEntradas());
+        System.out.println("Total salidas: " + SistemaEstacionamiento.getTotalSalidas());
+        System.out.println("Estado del espacio 1: " + (es1.estaLibre()? "Libre": "Ocupado"));
+        System.out.println("Estado del espacio 2: " + (es2.estaLibre()? "Libre": "Ocupado"));
+        System.out.println("Estado del espacio 3: " + (es3.estaLibre()? "Libre": "Ocupado"));
+        System.out.println(" \n");
+
+        System.out.println("========DETALLES DEL VEHICULO==========");
+        System.out.println(tic1.obtenerDetalle());
+        System.out.println(tic2.obtenerDetalle());
+        System.out.println(tic3.obtenerDetalle());
     }
 }
