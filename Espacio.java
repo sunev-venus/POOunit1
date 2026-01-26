@@ -5,11 +5,11 @@ class Espacio {
     private String estado;
     private Vehiculo vehiculoActual;
 
-    //Constructores
+
     public Espacio(int numero, String estado, Vehiculo vehiculoActual){
         this.numero = numero;
-        this.estado = (estado != null)? "Libre": null;
-        this.vehiculoActual = (estado != null)? vehiculoActual: null;
+        this.estado = (estado != null )? estado: "Libre" ;
+        this.vehiculoActual = vehiculoActual;//
     }
 
     // Métodos
@@ -21,14 +21,15 @@ class Espacio {
     public void liberar(){
         this.vehiculoActual = null;
         this.estado = "Libre";
+
     }
 
     public boolean estaLibre(){
-        return "LIBRE".equals(estado);
+        return "Libre".equalsIgnoreCase(this.estado);
     }
-
-    public int getNumero(){
+    public int getNumero(){  //
         return numero;
     }
+    
 
 }
