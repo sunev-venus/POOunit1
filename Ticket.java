@@ -1,10 +1,11 @@
-public class TicketAs {
+public class Ticket {
     private String folio;
     private String horaEntrada;
     private String horaSalida;
     private String estado;
     private Vehiculo vehiculo;
     private Espacio espacio;
+
 
     public Ticket (String folio, String horaEntrada, Vehiculo vehiculo, Espacio espacio){
         this.folio = folio;
@@ -21,11 +22,11 @@ public class TicketAs {
         System.out.println("Hora salida: "+horaSalida +" - Estado: "+ estado );
     }
 
-    public String obtenerDetalle(){ //funcion esa la que es en una sola linea 
+    public String obtenerDetalle(){
         if (vehiculo!= null && espacio !=null){
-            String placa = vehiculo.getPlacas();
-            int esp= espacio.getNumero();
-            return "Folio: " + folio + "Placa: "+ placa +"Espacio: "+ esp+" Hora de entrada: " + horaEntrada + " Hora de salida: " + horaSalida + " Estado: " + estado;
+            String placa = vehiculo.getPlacas(); //4
+            int esp= espacio.getNumero(); //5
+            return "Folio: " + folio+". " + "Placa: "+ placa+". " +"Espacio: "+ esp+". "+" Hora de entrada: " + horaEntrada +". " + " Hora de salida: " + horaSalida+". " + " Estado: " + estado+". ";
         }
         else {
             return null;
