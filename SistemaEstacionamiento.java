@@ -9,27 +9,28 @@ public class SistemaEstacionamiento {
     public SistemaEstacionamiento(String nombre){
         this.nombre = nombre;
     }
-    public TicketAs registrarEntrada(Vehiculo vehiculo, Espacio espacio) {
+    public Ticket registrarEntrada(Vehiculo vehiculo, Espacio espacio) {
 
-        espacio.ocupar(vehiculo);
+        espacio.ocupar(vehiculo); //1
 
         totalEntradas++;
 
         consecutivoTicket++;
-        String horaEntrada = vehiculo.getHoraEntrada();
+        String horaEntrada = vehiculo.getHoraEntrada(); //2
         String folio = "T-" + consecutivoTicket;
-        TicketAs t = new TicketAs(folio,horaEntrada, vehiculo, espacio);
+        Ticket t = new Ticket(folio,horaEntrada, vehiculo, espacio);
         System.out.println("[" + nombre + "] Entrada registrada");
         System.out.println(" " + vehiculo.obtenerResumen());
         System.out.println(" " + t.obtenerDetalle());
 
-        return t;
+return t;
 
 }
 
-    public void registrarSalidas (){
-      espacio.liberar();
-      totalSalidas++;
+    public void registrarSalidas (){    
+        totalSalidas++;
+        System.out.println("["+nombre+"] El espacio se ha liberado. Salida registrada");
+      
     }
     public static int getTotalEntradas(){
         return  totalEntradas;
