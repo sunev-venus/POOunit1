@@ -1,5 +1,3 @@
-
-
 public class Vehiculo {
     private String placas;
     private String tipo;
@@ -18,7 +16,7 @@ public class Vehiculo {
     }
 
     public String obtenerResumen(){
-            return "Placa: " + placas + " \n Tipo: " + tipo + "\n Hora de entrada: " + horaEntrada ;
+            return "Placas: " + placas +" - " + "Tipo: "+ tipo+  " - " +"Hora de entrada: " + horaEntrada ;
     }
     
     public void ActualizarHoraEntrada(String horaEntrada){
@@ -35,6 +33,4 @@ public class Vehiculo {
     public String getHoraEntrada(){
         return horaEntrada;
     }
-    
-    
 }
