@@ -1,1 +1,40 @@
+public class SistemaEstacionamiento {
+    private String nombre;
+    private static int totalEntradas=0;
+    private static int totalSalidas=0;
+    private static int consecutivoTicket =0; 
+    private Espacio espacio;
 
+
+    public SistemaEstacionamiento(String nombre){
+        this.nombre = nombre;
+    }
+    public TicketAs registrarEntrada(Vehiculo vehiculo, Espacio espacio) {
+
+        espacio.ocupar(vehiculo);
+
+        totalEntradas++;
+
+        consecutivoTicket++;
+        String horaEntrada = vehiculo.getHoraEntrada();
+        String folio = "T-" + consecutivoTicket;
+        TicketAs t = new TicketAs(folio,horaEntrada, vehiculo, espacio);
+        System.out.println("[" + nombre + "] Entrada registrada");
+        System.out.println(" " + vehiculo.obtenerResumen());
+        System.out.println(" " + t.obtenerDetalle());
+
+        return t;
+
+}
+
+    public void registrarSalidas (){
+      espacio.liberar();
+      totalSalidas++;
+    }
+    public static int getTotalEntradas(){
+        return  totalEntradas;
+    }
+    public static int getTotalSalidas(){
+        return totalSalidas;
+    }
+}

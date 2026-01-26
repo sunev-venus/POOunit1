@@ -14,7 +14,7 @@ class TicketVen {
         this.horaEntrada = horaEntrada;
         this.horaSalida = "N/A";
         this.estado = "ABIERTO";
-        this.vehiculo =vehiculo;
+        this.vehiculo = vehiculo;
         this.espacio = espacio;
 
     }
