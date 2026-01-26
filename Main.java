@@ -30,8 +30,14 @@ public class Main {
        System.out.println(smN3.registrarEntrada(v2, es2));
        System.out.println(" \n");
        System.out.println(tic3.obtenerDetalle());
+       System.out.println(" \n");
 
-       System.out.println("\n Ticket totales:" + SistemaEstacionamiento.getTotalEntradas());
+       System.out.println("======REGISTRO DE SALIDAS======\n");
+       //System.out.println(smN1.registrarSalidas(v3, es3));
+       System.out.println(" \n");
+
+       System.out.println("======REGISTRO DEL DÍA======\n");
+       System.out.println(" Ticket totales:" + SistemaEstacionamiento.getTotalEntradas());
 
         
     }
