@@ -16,25 +16,26 @@ public class Ticket {
         this.espacio = espacio;
     }
     
-    public static void finalizar (String horaSalida, String estado){
-        horaSalida = horaSalida;
-        estado = "Cerrado";
-        System.out.println("Hora salida: "+horaSalida +" - Estado: "+ estado );
+    public void finalizar (String horaSalida, String estado){
+        this.horaSalida = horaSalida;
+        this.estado = "Cerrado";
+
+        System.out.println("Hora salida: "+horaSalida +" - Estado: "+ estado);
     }
 
     public String obtenerDetalle(){
         if (vehiculo!= null && espacio !=null){
-            String placa = vehiculo.getPlacas(); //4
+            String placa = vehiculo.getPlacas(); //4 //se duplicaba por eso lo elimine al igual que la hotraEntrada
             int esp= espacio.getNumero(); //5
-            return "Folio: " + folio+". " + "Placa: "+ placa+". " +"Espacio: "+ esp+". "+" Hora de entrada: " + horaEntrada +". " + " Hora de salida: " + horaSalida+". " + " Estado: " + estado+". ";
+            return "Folio: " + folio+". \n" +"Espacio: "+ esp+". \n"+ "Hora de salida: " + horaSalida+". \n" + "Estado: " + estado+". \n";
         }
-        else {
-            return null;
-        }
+
+            return "No fueron proporcionados los datos completos";
+    
     }
 
     public boolean entregado(){
-        return "Cerrado".equals(espacio);
+        return "Cerrado".equals(this.espacio);
     }
     
 }
