@@ -3,17 +3,17 @@ class Espacio {
     // Atributos
     private int numero;
     private String estado;
-    private Vehículo vehiculoActual;
+    private Vehiculo vehiculoActual;
 
-    //Constructores
-    public Espacio(int numero, String estado, Vehículo vehiculoActual){
+
+    public Espacio(int numero, String estado, Vehiculo vehiculoActual){
         this.numero = numero;
-        this.estado = "Libre";
-        this.vehiculoActual = null;
+        this.estado = (estado != null )? "Libre": null ;
+        this.vehiculoActual = (estado != null )? vehiculoActual :null;//
     }
 
     // Métodos
-    public void ocupar(Vehículo vehiculo){
+    public void ocupar(Vehiculo vehiculo){
         this.vehiculoActual = vehiculo;
         this.estado = "Ocupado";
     }
@@ -26,5 +26,9 @@ class Espacio {
     public boolean estaLibre(){
         return "LIBRE".equals(estado);
     }
+    public int getNumero(){  //
+        return numero;
+    }
+    
 
 }
