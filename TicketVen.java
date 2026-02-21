@@ -1,39 +1,41 @@
-class TicketVen {
-    //Atributos
+public class Ticket {
     private String folio;
     private String horaEntrada;
     private String horaSalida;
-    private Espacio espacio;
     private String estado;
-    private Vehículo vehiculo;
+    private Vehiculo vehiculo;
 
-
-    // Constructor parametrizaddo
-    public TicketVen(String folio, String horaEntrada, String horaSalida, Vehículo vehiculo, Espacio espacio){
+    public Ticket (String folio, String horaEntrada, Vehiculo vehiculo){
         this.folio = folio;
         this.horaEntrada = horaEntrada;
-        this.horaSalida = "N/A";
-        this.estado = "ABIERTO";
-        this.vehiculo = vehiculo;
-        this.espacio = espacio;
+        this.horaSalida= "N/A";
+        this.estado = "Abierto";
+        this.vehiculo =vehiculo;
+    }
+    
+    public void finalizar (String horaSalida, String horaEntrada, String estado){
 
+        this.horaSalida = horaSalida;
+        this.estado = "Cerrado";
+
+        System.out.println("Hora salida: "+horaSalida + "Hora entrada: "+horaEntrada +" - Estado: "+ estado);
     }
 
-    // Métodos
-    public void finalizar(String horaSalida){
-        // Ya se está yendo
+    public String obtenerDetalle(){
 
-    }
+        String situacion= entregado()? "Vehiculo recogido" : "Vehiculo estacionado";
+        if (vehiculo !=null){
+            String placa = vehiculo.getPlacas(); //4 //se duplicaba por eso lo elimine al igual que la hotraEntrada//5
 
-    public String obrenerDetalle(){
-        return "";
-
+            return "Folio: " +folio+". \n"+"PLaca: "+ placa+". \n" +". \n"+ "Hora de salida: " + horaSalida+". \n" + "Estado: " + estado+". \n" + "Situación: " + situacion ;
+        }
+            else {
+            return "No fueron proporcionados los datos completos";}
+    
     }
 
     public boolean entregado(){
-        return false;
-
+        return "Cerrado".equals(estado);
     }
-
     
 }
