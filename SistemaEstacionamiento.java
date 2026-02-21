@@ -22,7 +22,7 @@ public class SistemaEstacionamiento implements Ticketable{
         espacios.add(espacio);
         }
         espacio.ocupar(vehiculo); //1
-
+        totalEntradas++;
         consecutivoTicket++;
         String horaEntrada = vehiculo.getHoraEntrada(); //2
         String folio = "T-" + consecutivoTicket;
@@ -47,7 +47,7 @@ return t;
         if (t ==null)  System.out.println(" ");
         else {
         tickets.add(t);}
-        totalEntradas++;
+      
        System.out.println("Tickets registrados: " + getTotalEntradas());
         
     }
