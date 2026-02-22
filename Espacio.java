@@ -6,26 +6,26 @@ class Espacio {
     private Vehiculo vehiculoActual;
 
 
-    public Espacio(int numero, String estado, Vehiculo vehiculoActual){
+    public Espacio(int numero){
         this.numero = numero;
-        this.estado = (estado != null )? estado: "Libre" ;
-        this.vehiculoActual = vehiculoActual;//
+        this.estado = "Libre" ;
+        this.vehiculoActual = null;//
     }
 
     // Métodos
     public void ocupar(Vehiculo vehiculo){
-        this.vehiculoActual = vehiculo;
-        this.estado = "Ocupado";
+        vehiculoActual = vehiculo;
+        estado = "Ocupado";
     }
 
     public void liberar(){
-        this.vehiculoActual = null;
-        this.estado = "Libre";
+        vehiculoActual = null;
+        estado = "Libre";
 
     }
 
     public boolean estaLibre(){
-        return "Libre".equalsIgnoreCase(this.estado);
+        return "Libre".equalsIgnoreCase(estado);
     }
     public int getNumero(){  //
         return numero;
