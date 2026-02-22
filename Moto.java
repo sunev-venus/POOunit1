@@ -1,20 +1,22 @@
 public class Moto extends Vehiculo {
     private int cilindrada;
 
-    public Moto(String placa, String horaSalida, int cilindrada){
-        super(placa, horaSalida);
-        this.horaSalida = horaSalida;
+    public Moto(String placa, String horaEntrada, int cilindrada){
+        super(placa, horaEntrada);
+        this.cilindrada=cilindrada;
     }
 
     @Override
     public double calcularTarifa(int horas) {
-        return horas * 15.00;
+        double total = horas * 15.00;
+        return total;
     }
 
     @Override
     public String obtenerResumen(){
         
-        return "El vehiculo con placas: " +placa + "Cilindraje: "+ cilindrada +  "Hora de salida: " + horaSalida ;
+        return "El vehiculo con placas: " +placa + " Cilindraje: "+ cilindrada +  " Hora de entrada: " + horaEntrada ;
     }
+
     
 }
