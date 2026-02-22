@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class SistemaEstacionamiento implements Ticketable{
     private String nombre;
     private static int totalEntradas=0;
@@ -8,7 +9,7 @@ public class SistemaEstacionamiento implements Ticketable{
     private static int consecutivoTicket =0; 
     private List<Espacio>espacios;
     private List<Ticket>tickets;
-  
+
 
     public SistemaEstacionamiento(String nombre){
         this.nombre = nombre;
@@ -16,6 +17,8 @@ public class SistemaEstacionamiento implements Ticketable{
         this.tickets= new ArrayList<>();
         
     }
+
+    
     public Ticket registrarEntrada(Vehiculo vehiculo, Espacio espacio) {
 
         if (espacio == null) throw new IllegalArgumentException("El espacio es obligatorio");
@@ -32,11 +35,11 @@ public class SistemaEstacionamiento implements Ticketable{
         System.out.println(" " + vehiculo.obtenerResumen());
         System.out.println(" " + t.obtenerDetalle());
         System.out.println(t.entregado());
-
 return t;
 
 }
-    public void registrarSalidas (Espacio e, Ticket t){  
+    public void registrarSalidas (Espacio e, Ticket t,String horaSalida, int horas){  
+        t.finalizar(horaSalida, horas);
         e.liberar();
         totalSalidas++;
         System.out.println("==========Registrar salida==========");
@@ -46,15 +49,14 @@ return t;
     }
 
     
-   public void generarTicket(Ticket t, int horas ){
+    public void generarTicket(Ticket t, int horas ){
     if (t == null) throw new IllegalArgumentException("El espacio es obligatorio");
         else {tickets.add(t);
         };
         
     System.out.println("==========Ticket==========");
     System.out.println(t.obtenerDetalle());
-    System.out.println("Total a pagar: " + " ");
-   }
+    }
 
    // 
     public static int getTotalEntradas(){
