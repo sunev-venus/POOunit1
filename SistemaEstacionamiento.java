@@ -18,8 +18,8 @@ public class SistemaEstacionamiento implements Ticketable{
     }
     public Ticket registrarEntrada(Vehiculo vehiculo, Espacio espacio) {
 
-        if (espacio != null){
-        espacios.add(espacio);
+        if (espacio == null) throw new IllegalArgumentException("El espacio es obligatorio");
+        else {espacios.add(espacio);
         }
         espacio.ocupar(vehiculo); //1
         totalEntradas++;
@@ -27,6 +27,7 @@ public class SistemaEstacionamiento implements Ticketable{
         String horaEntrada = vehiculo.getHoraEntrada(); //2
         String folio = "T-" + consecutivoTicket;
         Ticket t = new Ticket(folio,horaEntrada, vehiculo, espacio);
+        System.out.println("==========Registrar entrada==========");
         System.out.println("[" + nombre + "] Entrada registrada");
         System.out.println(" " + vehiculo.obtenerResumen());
         System.out.println(" " + t.obtenerDetalle());
@@ -35,23 +36,27 @@ public class SistemaEstacionamiento implements Ticketable{
 return t;
 
 }
-    public void registrarSalidas (Espacio e, Ticket t, int horas){  
+    public void registrarSalidas (Espacio e, Ticket t){  
         e.liberar();
         totalSalidas++;
-        System.out.println("Total salidas: " + getTotalSalidas());
+        System.out.println("==========Registrar salida==========");
+        System.out.println("Total salidas: " + totalSalidas);
         System.out.println("["+nombre+"] El espacio se ha liberado. Salida registrada");
     
     }
 
-    public void generarTicket(Ticket t){
-        if (t ==null)  System.out.println(" ");
-        else {
-        tickets.add(t);}
-      
-       System.out.println("Tickets registrados: " + getTotalEntradas());
+    
+   public void generarTicket(Ticket t, int horas ){
+    if (t == null) throw new IllegalArgumentException("El espacio es obligatorio");
+        else {tickets.add(t);
+        };
         
-    }
+    System.out.println("==========Ticket==========");
+    System.out.println(t.obtenerDetalle());
+    System.out.println("Total a pagar: " + " ");
+   }
 
+   // 
     public static int getTotalEntradas(){
         return  totalEntradas;
     }
