@@ -1,19 +1,27 @@
 abstract class Vehiculo {
     
     protected String placa;
-    protected String horaSalida;
+    protected String horaEntrada;
 
-    public Vehiculo (String placa, String horaSalida){
-        this.horaSalida = horaSalida;
+    //validaciones
+    public Vehiculo (String placa, String horaEntrada){
+        this.horaEntrada = horaEntrada;
         this.placa = placa;
 
     }
 
     public abstract double calcularTarifa(int horas);
 
-    public String obtenerResumen(){
-        
-        return "El vehiculo con placas: " +placa +  "Hora de salida: " + horaSalida ;
+    public String obtenerResumen(){      
+        return "El vehiculo con placas: " +placa +  "Hora de entrada: " + horaEntrada ;
+    }
+
+    public String getPlacas(){
+        return placa;
+    }   
+
+    public String getHoraEntrada(){
+        return horaEntrada;
     }
     
 }
