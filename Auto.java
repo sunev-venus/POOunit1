@@ -1,9 +1,10 @@
+
 public class Auto extends Vehiculo {
 
     private String tipo;
 
-    public Auto(String placa, String horaSalida, String tipo){
-        super(placa, horaSalida);
+    public Auto(String placa, String horaEntrada, String tipo){
+        super(placa, horaEntrada);
         this.tipo = tipo;
         
     }
@@ -17,7 +18,7 @@ public class Auto extends Vehiculo {
     @Override
     public String obtenerResumen(){
         
-        return "El vehiculo con placas: " +placa + "Tipo: "+ tipo +  "Hora de salida: " + horaSalida ;
+        return "El vehiculo con placas: " +placa + " Tipo: "+ tipo +  " Hora de entrada: " + horaEntrada;
     }
 
 
