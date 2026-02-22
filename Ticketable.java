@@ -1,5 +1,4 @@
 public interface Ticketable {
 
-    public String generarTicket(Ticket t, double total);
-    
+  public void generarTicket(Ticket t, int total );
 }
