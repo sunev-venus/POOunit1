@@ -12,6 +12,7 @@ public class SistemaEstacionamiento implements Ticketable{
 
 
     public SistemaEstacionamiento(String nombre){
+        if (nombre == null) throw new IllegalArgumentException("El nombre es obligatorio");
         this.nombre = nombre;
         this.espacios= new ArrayList<>();
         this.tickets= new ArrayList<>();
@@ -20,7 +21,6 @@ public class SistemaEstacionamiento implements Ticketable{
 
     
     public Ticket registrarEntrada(Vehiculo vehiculo, Espacio espacio) {
-
         if (espacio == null) throw new IllegalArgumentException("El espacio es obligatorio");
         else {espacios.add(espacio);
         }
@@ -30,39 +30,42 @@ public class SistemaEstacionamiento implements Ticketable{
         String horaEntrada = vehiculo.getHoraEntrada(); //2
         String folio = "T-" + consecutivoTicket;
         Ticket t = new Ticket(folio,horaEntrada, vehiculo, espacio);
-        System.out.println("==========Registrar entrada==========");
+        System.out.println("\n==========Registrar entrada==========");
         System.out.println("[" + nombre + "] Entrada registrada");
         System.out.println(" " + vehiculo.obtenerResumen());
         System.out.println(" " + t.obtenerDetalle());
         System.out.println(t.entregado());
-return t;
+        System.out.println("Total entradas: " + totalEntradas);
+        return t;
 
 }
     public void registrarSalidas (Espacio e, Ticket t,String horaSalida, int horas){  
+        System.out.println("\n==========Registrar salida==========");
         t.finalizar(horaSalida, horas);
         e.liberar();
         totalSalidas++;
-        System.out.println("==========Registrar salida==========");
         System.out.println("Total salidas: " + totalSalidas);
         System.out.println("["+nombre+"] El espacio se ha liberado. Salida registrada");
-    
     }
 
-    
-    public void generarTicket(Ticket t, int horas ){
+    // cambiar string por void 
+    public void generarTicket(Ticket t ){
     if (t == null) throw new IllegalArgumentException("El espacio es obligatorio");
         else {tickets.add(t);
         };
         
-    System.out.println("==========Ticket==========");
+    System.out.println("\n==========Ticket==========");
     System.out.println(t.obtenerDetalle());
     }
 
-   // 
+   // creo que hay que borrar
     public static int getTotalEntradas(){
         return  totalEntradas;
     }
+
+    //creo que hay que borrarlo
     public static int getTotalSalidas(){
         return totalSalidas;
     }
+
 }
