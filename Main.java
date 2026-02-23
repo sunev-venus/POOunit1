@@ -10,26 +10,22 @@ public class Main {
         Vehiculo M2= new Moto ("222", "11 am", 1976);
         Vehiculo M3= new Moto ("223", "5 pm", 5789);
 
-
         Espacio es1= new Espacio (1);
         Espacio es2 = new Espacio(2);
         Espacio es3 = new Espacio(3);
-
-      
+        Espacio es4 = new Espacio(3);
 
         Ticket t1= SistemaE.registrarEntrada(A1, es1);
         Ticket t2= SistemaE.registrarEntrada(A2, es2);
         Ticket t3= SistemaE.registrarEntrada(M1, es3);
-        //Ticket t4= SistemaE.registrarEntrada(M2, es2);
-
+        Ticket t4= SistemaE.registrarEntrada(M2, es4);
+    
+        SistemaE.registrarSalidas(es1, t1,"12 am", 7);
+        SistemaE.registrarSalidas(es2, t2, "1 am", 8);
         
+        SistemaE.generarTicket(t1);
+        SistemaE.generarTicket(t2);
 
-        t1.finalizar("11 am");
-        t2.finalizar("10 am");
-        SistemaE.registrarSalidas(es1, t1);
-        SistemaE.registrarSalidas(es2, t2);
-        SistemaE.generarTicket(t1,7);
-        SistemaE.generarTicket(t2,2);
 
         
 }
