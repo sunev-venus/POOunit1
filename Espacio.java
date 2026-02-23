@@ -7,6 +7,7 @@ class Espacio {
 
 
     public Espacio(int numero){
+        if (numero <= 0 ) throw new IllegalArgumentException("Ingrese un numero mayor y diferente a 0");
         this.numero = numero;
         this.estado = "Libre" ;
         this.vehiculoActual = null;//
