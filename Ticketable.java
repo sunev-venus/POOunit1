@@ -1,4 +1,5 @@
 public interface Ticketable {
 
-  public void generarTicket(Ticket t, int total );
+  //for each
+  public  void  generarTicket(Ticket t); 
 }
