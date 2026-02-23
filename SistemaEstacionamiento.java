@@ -1,5 +1,10 @@
+package sistemaEstacionamiento;
 import java.util.ArrayList;
 import java.util.List;
+import vehiculo.*;
+import ticket.Ticket;
+import ticket.Ticketable;
+import espacio.Espacio;
 
 
 public class SistemaEstacionamiento implements Ticketable{
@@ -22,8 +27,8 @@ public class SistemaEstacionamiento implements Ticketable{
     
     public Ticket registrarEntrada(Vehiculo vehiculo, Espacio espacio) {
         if (espacio == null) throw new IllegalArgumentException("El espacio es obligatorio");
-        else {espacios.add(espacio);
-        }
+        espacios.add(espacio);
+        
         espacio.ocupar(vehiculo); //1
         totalEntradas++;
         consecutivoTicket++;
@@ -43,29 +48,30 @@ public class SistemaEstacionamiento implements Ticketable{
         System.out.println("\n==========Registrar salida==========");
         t.finalizar(horaSalida, horas);
         e.liberar();
-        totalSalidas++;
-        System.out.println("Total salidas: " + totalSalidas);
         System.out.println("["+nombre+"] El espacio se ha liberado. Salida registrada");
     }
 
     // cambiar string por void 
     public void generarTicket(Ticket t ){
-    if (t == null) throw new IllegalArgumentException("El espacio es obligatorio");
-        else {tickets.add(t);
-        };
-        
+    if (t == null) throw new IllegalArgumentException("Es obligatorio");
     System.out.println("\n==========Ticket==========");
     System.out.println(t.obtenerDetalle());
+    totalSalidas++;
+    System.out.println("Total salidas: " + totalSalidas);
+    tickets.add(t);
     }
 
-   // creo que hay que borrar
-    public static int getTotalEntradas(){
-        return  totalEntradas;
+    public void calcularTotalTarifas(){
+       double total=0;
+        for (Ticket t: tickets){
+            total +=t.getTotalPagar();
+        }
+
+        System.out.println("\n===============Ganancia total================");
+        System.out.println(total);
     }
 
-    //creo que hay que borrarlo
-    public static int getTotalSalidas(){
-        return totalSalidas;
-    }
 
+
+    
 }
