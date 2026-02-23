@@ -3,6 +3,7 @@ public class Moto extends Vehiculo {
 
     public Moto(String placa, String horaEntrada, int cilindrada){
         super(placa, horaEntrada);
+        if (cilindrada <=0) throw new IllegalArgumentException("Ingrese un numero mayor y diferente a 0");
         this.cilindrada=cilindrada;
     }
 
@@ -11,11 +12,12 @@ public class Moto extends Vehiculo {
         double total = horas * 15.00;
         return total;
     }
+    
 
     @Override
     public String obtenerResumen(){
         
-        return "El vehiculo con placas: " +placa + " Cilindraje: "+ cilindrada +  " Hora de entrada: " + horaEntrada ;
+        return "El vehiculo con placas: " +placa +"\n"+" Cilindraje: "+ cilindrada  +"\n"+ " Hora de entrada: " + horaEntrada ;
     }
 
     
